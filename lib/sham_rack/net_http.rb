@@ -85,6 +85,8 @@ module ShamRack
       end
 
       def assemble_body(body)
+        body.close if body.respond_to?(:close)
+
         content = ""
         body.each { |fragment| content << fragment }
         content
